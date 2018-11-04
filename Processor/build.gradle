@@ -1,0 +1,17 @@
+import org.gradle.internal.jvm.Jvm
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup:javapoet:1.9.0'
+    implementation 'com.google.auto:auto-common:0.8'
+    implementation 'com.squareup:kotlinpoet:1.0.0-RC1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.61"
+    implementation project(':Annotation')
+    compileOnly files(Jvm.current().getToolsJar())
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
